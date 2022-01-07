@@ -118,7 +118,7 @@ def view(message):
       chat_id=chat_id,
       text = chat_text
     )
-  bot.send_photo(chat_id=chat_id, photo=open('./gabby.jpg', 'rb'))
+#   bot.send_photo(chat_id=chat_id, photo=open('./gabby.jpg', 'rb'))
     bot.send_photo(
       chat_id = chat_id,
       photo=open('./Images/gabby.jpg', 'rb'),
