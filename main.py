@@ -115,11 +115,11 @@ def view(message):
       text = chat_text
     )
   # bot.send_photo(chat_id=chat_id, photo=open('./gabby.jpg', 'rb'))
-#     bot.send_photo(
-#       chat_id = chat_id,
-#       photo=open('./Images/gabby.jpg', 'rb'),
-#       caption= 'So good like Gabby !'
-#     )
+    # bot.send_photo(
+    #   chat_id = chat_id,
+    #   photo=open('./Images/gabby.jpg', 'rb'),
+    #   caption= 'So good like Gabby !'
+    # )
 
   else:
     chat_text='Outstanding tasks:'
