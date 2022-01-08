@@ -40,14 +40,14 @@ def start(message):
     chat_user = message.chat.first_name
   else:
     chat_user = message.chat.title
+    if chat_id in user:
+      bot.send_message(chat_id=chat_id, text='The bot has already started')
+      return 
   
-  if chat_id in user:
-    bot.send_message(chat_id=chat_id, text='The bot has already started')
-  return 
-  
-  user[chat_id] = []
-  message_text = f'Hello {chat_user} !'
-  bot.reply_to(message, message_text)
+      user[chat_id] = []
+      message_text = f'Hello {chat_user} !'
+      bot.reply_to(message, message_text)
+ 
 
 
 @bot.message_handler(commands=['view'])
