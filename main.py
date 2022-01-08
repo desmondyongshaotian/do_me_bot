@@ -50,7 +50,6 @@ def start(message):
     message_text = f'Hello {chat_user} !'
     bot.reply_to(message, message_text)
 
-
 @bot.message_handler(commands=['view'])
 def view(message):
   """
