@@ -1,7 +1,4 @@
-
 import os
-
-# from database import user
 
 user = {}
 
