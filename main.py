@@ -41,35 +41,6 @@ bot.set_my_commands([
   ])
 
 
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Spam
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-@bot.message_handler(commands=['gabby'])
-def gabby(message):
-    bot.send_message(chat_id=message.chat.id, text='OI GABBY HO, FUCK U YIWONG🥵🥵🥵🥵')
-    return
-
-
-@bot.message_handler(commands=['rty'])
-def rty(message):
-    bot.send_photo(
-      chat_id = message.chat.id,
-      photo=open('./Images/rty.jpg', 'rb'),
-      caption= 'So cute !'
-    )
-
-@bot.message_handler(commands=['mia'])
-def mia(message):
-    bot.send_photo(
-      chat_id = message.chat.id,
-      photo=open('./Images/mia.jpg', 'rb'),
-      caption= 'So cute !'
-    )
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-Spam
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 
 def request_start(chat_id):
   """
@@ -117,12 +88,6 @@ def view(message):
     bot.send_message(
       chat_id=chat_id,
       text = chat_text
-    )
-#   bot.send_photo(chat_id=chat_id, photo=open('./gabby.jpg', 'rb'))
-    bot.send_photo(
-      chat_id = chat_id,
-      photo=open('./Images/gabby.jpg', 'rb'),
-      caption= 'So good like Gabby !'
     )
 
   else:
