@@ -58,10 +58,12 @@ def view(message):
 
   if (not user[chat_id]):
     chat_text = 'No outstanding tasks!'
-    bot.send_message(
+    bot.send_sticker(
       chat_id=chat_id,
-      text = chat_text
+      text=chat_text
+      data='CAACAgUAAxkBAAEDoxZh2QABPhROPLwinyjqul0ut86dCpoAAgoCAAIcqWgDAnNxba4Na0kjBA'
     )
+    
 
   else:
     chat_text='Outstanding tasks:'
@@ -127,11 +129,10 @@ def confirm_task(chat_id, task):
       reply_markup=InlineKeyboardMarkup(buttons)
     )
 
-
+    
 def remove_task(chat_id, task):
   user[chat_id].remove(task)
   bot.send_message(chat_id, f'Completed {task}')
-
 
 
 @bot.message_handler(commands=['add'])
@@ -153,7 +154,6 @@ def add_to_user(message):
 
     user[chat_id].append(task)
     bot.send_message(chat_id, f'Added {task}')
-
 
 
 @bot.message_handler(commands=['clear_list'])
