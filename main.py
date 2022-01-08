@@ -58,6 +58,10 @@ def view(message):
 
   if (not user[chat_id]):
     chat_text = 'No outstanding tasks!'
+    bot.send_message(
+      chat_id=chat_id, 
+      text=chat_text
+    )
     bot.send_sticker(
       chat_id=chat_id,
       data='CAACAgUAAxkBAAEDoxZh2QABPhROPLwinyjqul0ut86dCpoAAgoCAAIcqWgDAnNxba4Na0kjBA'
