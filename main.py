@@ -60,7 +60,6 @@ def view(message):
     chat_text = 'No outstanding tasks!'
     bot.send_sticker(
       chat_id=chat_id,
-      text=chat_text
       data='CAACAgUAAxkBAAEDoxZh2QABPhROPLwinyjqul0ut86dCpoAAgoCAAIcqWgDAnNxba4Na0kjBA'
     )
     
