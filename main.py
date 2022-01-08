@@ -93,7 +93,6 @@ def handle_callback(call):
   """
   chat_id = call.message.chat.id
   data = call.data
-  # intent, data = data.split()[0], data.split()[1:]
   intent, data = data.split()[0], data[data.index(' ') + 1:]
   if intent == 'confirm':
     confirm_task(chat_id, data)
@@ -149,8 +148,7 @@ def add_to_user(message):
   if message.text == '/add' or message.text == '/add@Taskshelper_bot':
     bot.send_message(chat_id, 'Please enter task after /add')
     return
-  else:
-    # task = ' '.join(message.text.split()[1:])    
+  else:    
     task = task[task.index(' ') + 1:]
     if chat_id not in user: 
       request_start(chat_id)
