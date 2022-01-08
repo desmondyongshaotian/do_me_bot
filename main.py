@@ -1,18 +1,9 @@
-#Features
-
-# 1) /add Add Tasking To The Bot
-# 2) /clear_list Clear Entire To Do List - (maybe add a confirmation key)
-# 3) /reminder remind user at a certain time
-# 4) /clear_task clear single task
-# (followed by prompt to choose task to clear)
-# 5) /view see items in list
 
 import os
 
 # from database import user
 
 user = {}
-
 
 import telebot
 from telebot.types import (
@@ -24,22 +15,12 @@ from telebot.types import (
 API_KEY = os.getenv('API_KEY') 
 bot = telebot.TeleBot(API_KEY)
 
-
-# from threading import Thread
-# from time import sleep
-# import time, datetime 
-# print(datetime.date.today().weekday())
-
-
-
 bot.set_my_commands([
   BotCommand('start', 'Start The Bot'),
   BotCommand('add', 'Add Tasking To the Bot'),
   BotCommand('clear_list', 'Clear Entire To Do List'),  
-  BotCommand('remind', 'Remind User Of A Specific Task At A Certain Time'),
   BotCommand('view', 'View Entire List and Remove Specific Task')
   ])
-
 
 
 def request_start(chat_id):
@@ -50,8 +31,6 @@ def request_start(chat_id):
     bot.send_message(chat_id=chat_id, text='Please start the bot by sending /start')
   
   return
-
-
 
 
 @bot.message_handler(commands=['start'])
@@ -67,9 +46,6 @@ def start(message):
   user[chat_id] = []
   message_text = f'Hello {chat_user} !'
   bot.reply_to(message, message_text)
-
-
-
 
 
 @bot.message_handler(commands=['view'])
@@ -110,15 +86,11 @@ def view(message):
     )
 
 
-
-
-
 @bot.callback_query_handler(func=lambda call: True)
 def handle_callback(call):
   """
   Handles the execution of the respective functions upon receipt of the callback query
   """
-
   chat_id = call.message.chat.id
   data = call.data
   # intent, data = data.split()[0], data.split()[1:]
@@ -137,10 +109,6 @@ def handle_callback(call):
     return
 
   print(f'{chat_id}: Callback not implemented')
-
-
-
-
 
 
 def confirm_task(chat_id, task):
@@ -164,16 +132,9 @@ def confirm_task(chat_id, task):
     )
 
 
-
-
-
-
 def remove_task(chat_id, task):
   user[chat_id].remove(task)
   bot.send_message(chat_id, f'Completed {task}')
-
-
-
 
 
 
@@ -197,8 +158,6 @@ def add_to_user(message):
 
     user[chat_id].append(task)
     bot.send_message(chat_id, f'Added {task}')
-
-
 
 
 
